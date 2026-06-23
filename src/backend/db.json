@@ -1,0 +1,135 @@
+{
+  "products": [
+    {
+      "id": "cpu-1",
+      "name": "Intel Core i5",
+      "price": 250,
+      "category": "CPU",
+      "incompatibleWith": ["mobo-2"]
+    },
+    {
+      "id": "cpu-2",
+      "name": "AMD Ryzen 5",
+      "price": 220,
+      "category": "CPU",
+      "incompatibleWith": ["mobo-1"]
+    },
+    {
+      "id": "cpu-3",
+      "name": "Intel Core i7",
+      "price": 380,
+      "category": "CPU",
+      "incompatibleWith": ["mobo-2"]
+    },
+    {
+      "id": "cpu-4",
+      "name": "AMD Ryzen 7",
+      "price": 350,
+      "category": "CPU",
+      "incompatibleWith": ["mobo-1"]
+    },
+
+    {
+      "id": "mobo-1",
+      "name": "Intel Motherboard",
+      "price": 150,
+      "category": "Motherboard",
+      "incompatibleWith": ["cpu-2", "cpu-4"]
+    },
+    {
+      "id": "mobo-2",
+      "name": "AMD Motherboard",
+      "price": 140,
+      "category": "Motherboard",
+      "incompatibleWith": ["cpu-1", "cpu-3"]
+    },
+    {
+      "id": "mobo-3",
+      "name": "Intel Z790 Motherboard",
+      "price": 250,
+      "category": "Motherboard",
+      "incompatibleWith": ["cpu-2", "cpu-4"]
+    },
+
+    {
+      "id": "ram-1",
+      "name": "16GB DDR4 RAM",
+      "price": 80,
+      "category": "RAM",
+      "incompatibleWith": []
+    },
+    {
+      "id": "ram-2",
+      "name": "32GB DDR4 RAM",
+      "price": 150,
+      "category": "RAM",
+      "incompatibleWith": []
+    },
+    {
+      "id": "ram-3",
+      "name": "64GB DDR5 RAM",
+      "price": 280,
+      "category": "RAM",
+      "incompatibleWith": []
+    },
+
+    {
+      "id": "gpu-1",
+      "name": "RTX 4060",
+      "price": 350,
+      "category": "GPU",
+      "incompatibleWith": []
+    },
+    {
+      "id": "gpu-2",
+      "name": "RTX 4070",
+      "price": 550,
+      "category": "GPU",
+      "incompatibleWith": []
+    },
+    {
+      "id": "gpu-3",
+      "name": "RX 7800 XT",
+      "price": 500,
+      "category": "GPU",
+      "incompatibleWith": []
+    },
+
+    {
+      "id": "storage-1",
+      "name": "512GB NVMe SSD",
+      "price": 60,
+      "category": "Storage",
+      "incompatibleWith": []
+    },
+    {
+      "id": "storage-2",
+      "name": "1TB NVMe SSD",
+      "price": 100,
+      "category": "Storage",
+      "incompatibleWith": []
+    },
+    {
+      "id": "storage-3",
+      "name": "2TB NVMe SSD",
+      "price": 180,
+      "category": "Storage",
+      "incompatibleWith": []
+    },
+
+    {
+      "id": "psu-1",
+      "name": "650W Power Supply",
+      "price": 90,
+      "category": "PSU",
+      "incompatibleWith": []
+    },
+    {
+      "id": "psu-2",
+      "name": "850W Power Supply",
+      "price": 130,
+      "category": "PSU",
+      "incompatibleWith": []
+    }
+  ]
+}

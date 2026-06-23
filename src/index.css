@@ -1,0 +1,27 @@
+body {
+  background: #f8fafc;
+  height: 100vh;
+}
+@media (max-width: 768px) {
+  .logo-col {
+    text-align: center;
+  }
+  .logo {
+    height: 50px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+  .action {
+    width: 100%;
+  }
+}
+
+.horizontal-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #27C4A5 transparent;
+  overflow-x: scroll;
+  padding: 16px 0;
+}
+

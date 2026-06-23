@@ -1,0 +1,1 @@
+export const MAX_BUDGET = 1000;
