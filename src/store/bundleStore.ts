@@ -7,7 +7,7 @@ import { isProductIncompatible } from "../utils/incompatibilityUtils";
 
 export interface BundleStore {
   selectedItems: Record<string, Product>;
-
+  
   history: BuildState[];
   historyIndex: number;
 

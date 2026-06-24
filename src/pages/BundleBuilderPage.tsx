@@ -58,7 +58,6 @@ const BundleBuilderPage = () => {
                     gap: "16px",
                     marginBottom: "16px",
                     borderRadius: 16,
-                    boxShadow: "0 4px 16px rgba(0,0,0,0.08)",
                   }}
                 >
                   <section aria-labelledby={`category-${category}`}>
@@ -71,8 +70,9 @@ const BundleBuilderPage = () => {
                         id={`category-${category}`}
                         style={{
                           fontSize: "24px",
-                          textShadow: "0 2px 4px rgba(0,0,0,0.4)",
                           textAlign: "center",
+                          fontWeight: 700,
+                          color: "#1f1f1f",
                         }}
                       >
                         {category}

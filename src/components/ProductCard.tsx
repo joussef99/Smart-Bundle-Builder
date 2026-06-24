@@ -1,5 +1,5 @@
 import type { Product } from "../types/IProduct";
-import { Card , Button } from "antd";
+import { Card, Tag } from "antd";
 
 type ProductCardProps = {
   product: Product;
@@ -16,10 +16,13 @@ function ProductCard({
 }: ProductCardProps) {
   return (
     <Card
-      role ="button"
+      role="button"
       style={{
         minWidth: 295,
+        minHeight: 140,
         marginBottom: 16,
+        opacity: incompatible ? 0.5 : 1,
+        cursor: incompatible ? "not-allowed" : "pointer",
         border: isSelected
           ? "2px solid #27C4A5"
           : incompatible
@@ -34,7 +37,7 @@ function ProductCard({
       }}
       hoverable
       onClick={() => {
-        if (!incompatible && !isSelected) {
+        if (!incompatible) {
           onSelect(product);
         }
       }}
@@ -62,17 +65,22 @@ function ProductCard({
           ${product.price}
         </p>
       </div>
-      <Button
+      <Tag
         style={{
-          border: "1px solid #d9d9d9",
-          fontSize: "14px",
-          borderColor: isSelected ? "#27C4A5" : incompatible ? "orange" : "#d9d9d9",
-          backgroundColor: isSelected ? "#f0fffb" : incompatible ? "#fff2e8" : "#fff",
-          color: isSelected ? "#27C4A5" : "black",
+          borderRadius: 999,
+          padding: "6px 16px",
+          fontWeight: 600,
+          border: "none",
+          backgroundColor: isSelected
+            ? "#e6fffb"
+            : incompatible
+              ? "#fff7e6"
+              : "#f5f5f5",
+          color: isSelected ? "#13c2c2" : incompatible ? "#fa8c16" : "#595959",
         }}
       >
-        {isSelected ? "Selected" : incompatible ? "Incompatible" : "Select"}
-      </Button>
+        {isSelected ? "Selected" : incompatible ? "Incompatible" : "Available"}
+      </Tag>
     </Card>
   );
 }

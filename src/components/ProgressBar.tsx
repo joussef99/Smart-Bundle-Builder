@@ -6,6 +6,7 @@ interface ProgressBarProps {
   totalPrice: number;
 }
 const ProgressBar = ({ totalPrice }: ProgressBarProps) => {
+  const percentage = (totalPrice / MAX_BUDGET) * 100;
   return (
     <div>
       <div style={{ marginBottom: "16px" }}>
@@ -29,9 +30,14 @@ const ProgressBar = ({ totalPrice }: ProgressBarProps) => {
           aria-label="Budget usage"
         >
           <Progress
-            strokeColor="#27C4A5"
-            percent={(totalPrice / MAX_BUDGET) * 100}
-            status={totalPrice > MAX_BUDGET ? "exception" : "active"}
+            percent={percentage}
+            strokeColor={
+              percentage > 90
+                ? "#ff4d4f"
+                : percentage > 70
+                  ? "#faad14"
+                  : "#27C4A5"
+            }
           />
         </div>
       </div>
