@@ -1,5 +1,5 @@
 import { Progress } from "antd";
-import { MAX_BUDGET } from "./constants/budget";
+import { MAX_BUDGET } from "../constants/budget";
 import { DollarOutlined } from "@ant-design/icons";
 
 interface ProgressBarProps {

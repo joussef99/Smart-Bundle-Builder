@@ -9,7 +9,7 @@ Install dependencies:
 ```bash
 npm install
 ```
-  
+
 Run the application:
 
 ```bash
@@ -42,12 +42,11 @@ The application uses a custom history stack implemented with Zustand.
 * Every valid selection creates a new snapshot of the build state.
 * Undo moves backward through the history array.
 * Redo moves forward through the history array.
-* Clear Build backward the history stack to intial state
+* Clear Build resets the history stack to initial state
 * If a new selection is made after an Undo operation, future states are discarded and a new history branch is created.
 
 ## Author
 
 Youssef Gadow
 
-```
 ```

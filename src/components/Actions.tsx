@@ -7,12 +7,7 @@ const Actions = () => {
   const { undo, redo, clearBuild } = useBundleStore();
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-      }}
-    >
+ 
       <Card
         style={{
           width: "50%",
@@ -45,7 +40,6 @@ const Actions = () => {
           </Tooltip>
         </div>
       </Card>
-    </div>
   );
 };
 

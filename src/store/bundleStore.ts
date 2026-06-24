@@ -2,12 +2,12 @@ import { create } from "zustand";
 import type { BuildState } from "../types/IBuildState";
 import type { Product } from "../types/IProduct";
 import { calculateTotalPrice } from "../utils/budgetUtils";
-import { MAX_BUDGET } from "../components/constants/budget";
+import { MAX_BUDGET } from "../constants/budget";
 import { isProductIncompatible } from "../utils/incompatibilityUtils";
 
 export interface BundleStore {
   selectedItems: Record<string, Product>;
-  
+
   history: BuildState[];
   historyIndex: number;
 

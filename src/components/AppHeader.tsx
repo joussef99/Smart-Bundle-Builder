@@ -45,7 +45,7 @@ const AppHeader = () => {
             Smart Bundle Builder
           </Title>
         </Col>
-        <Col style={{ flex: "100px" }} />
+        <Col style={{ flex: "100px" }}/>
       </Row>
     </Header>
   );

@@ -3,18 +3,15 @@ import type { Product } from "../types/IProduct";
 import { getProducts } from "../services/productServices";
 import { useBundleStore } from "../store/bundleStore";
 import { calculateTotalPrice } from "../utils/budgetUtils";
-import { isProductIncompatible } from "../utils/incompatibilityUtils";
 import { Alert, Row, Col, Spin, Card } from "antd";
 import BuildSummary from "../components/BuildSummary";
-import ProductCard from "../components/ProductCard";
 import Actions from "../components/Actions";
 import ProgressBar from "../components/ProgressBar";
+import ProductCategories from "../components/ProductCategories";
 
 const BundleBuilderPage = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const { selectItem } = useBundleStore();
-
   useEffect(() => {
     const loadProducts = async () => {
       try {
@@ -29,9 +26,6 @@ const BundleBuilderPage = () => {
     loadProducts();
   }, []);
 
-  const handleClick = (product: Product) => {
-    selectItem(product);
-  };
   const { selectedItems, error } = useBundleStore();
   const totalPrice = calculateTotalPrice(selectedItems);
 
@@ -50,65 +44,10 @@ const BundleBuilderPage = () => {
           </div>
         ) : (
           <Col xs={24} lg={16}>
-            {Array.from(new Set(products.map((p) => p.category))).map(
-              (category) => (
-                <Card
-                  key={category}
-                  style={{
-                    gap: "16px",
-                    marginBottom: "16px",
-                    borderRadius: 16,
-                  }}
-                >
-                  <section aria-labelledby={`category-${category}`}>
-                    <div
-                      style={{
-                        marginBottom: "8px",
-                      }}
-                    >
-                      <h2
-                        id={`category-${category}`}
-                        style={{
-                          fontSize: "24px",
-                          textAlign: "center",
-                          fontWeight: 700,
-                          color: "#1f1f1f",
-                        }}
-                      >
-                        {category}
-                      </h2>
-                    </div>
-                    <div
-                      className="horizontal-scroll"
-                      style={{
-                        display: "flex",
-                        flexDirection: "row",
-                        gap: "16px",
-                        overflowX: "auto",
-                        paddingBottom: "8px",
-                      }}
-                    >
-                      {products
-                        .filter((p) => p.category === category)
-                        .map((product) => (
-                          <ProductCard
-                            key={product.id}
-                            product={product}
-                            incompatible={isProductIncompatible(
-                              product,
-                              selectedItems,
-                            )}
-                            isSelected={
-                              selectedItems[product.category]?.id === product.id
-                            }
-                            onSelect={handleClick}
-                          />
-                        ))}
-                    </div>
-                  </section>
-                </Card>
-              ),
-            )}
+            <ProductCategories
+              products={products}
+              selectedItems={selectedItems}
+            />
           </Col>
         )}
         <Col xs={24} lg={8}>
@@ -136,8 +75,11 @@ const BundleBuilderPage = () => {
                 description={error}
                 type="warning"
                 showIcon
-                style={{ marginBottom: "16px" }}
-                closable
+                style={{
+                  marginBottom: "16px",
+                  color: "#fff",
+                  textShadow: "0 2px 4px rgba(0,0,0,0.4)",
+                }}
                 banner
                 role="alert"
               />
