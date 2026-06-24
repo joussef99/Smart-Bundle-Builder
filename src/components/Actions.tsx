@@ -7,39 +7,39 @@ const Actions = () => {
   const { undo, redo, clearBuild } = useBundleStore();
 
   return (
- 
-      <Card
+    <Card
+      style={{
+        width: "fit-content",
+        margin: "0 auto",
+        borderRadius: 16,
+        boxShadow: "0 4px 16px rgba(0,0,0,0.08)",
+        marginBottom: 16,
+        border: "1px solid #d9d9d9",
+      }}
+    >
+      <div
         style={{
-          width: "50%",
-          borderRadius: 16,
-          boxShadow: "0 4px 16px rgba(0,0,0,0.08)",
-          marginBottom: 16,
+          display: "flex",
+          justifyContent: "space-between",
+          gap: "12px",          
         }}
-        className="action"
       >
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            gap: "12px",
-          }}
-        >
-          <Tooltip title="Undo">
-            <Button onClick={undo} icon={<UndoOutlined />} aria-label="Undo" />
-          </Tooltip>
-          <Tooltip title="Redo">
-            <Button onClick={redo} icon={<RedoOutlined />} aria-label="Redo" />
-          </Tooltip>
-          <Tooltip title="Clear Build">
-            <Button
-              onClick={clearBuild}
-              icon={<DeleteOutlined />}
-              danger
-              aria-label="Clear Build"
-            />
-          </Tooltip>
-        </div>
-      </Card>
+        <Tooltip title="Undo" >
+          <Button onClick={undo} icon={<UndoOutlined />} aria-label="Undo" />
+        </Tooltip>
+        <Tooltip title="Redo">
+          <Button onClick={redo} icon={<RedoOutlined />} aria-label="Redo" />
+        </Tooltip>
+        <Tooltip title="Clear Build">
+          <Button
+            onClick={clearBuild}
+            icon={<DeleteOutlined />}
+            danger
+            aria-label="Clear Build"
+          />
+        </Tooltip>
+      </div>
+    </Card>
   );
 };
 

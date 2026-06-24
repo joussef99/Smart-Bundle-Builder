@@ -17,6 +17,11 @@ function ProductCard({
   return (
     <Card
       role="button"
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          onSelect(product);
+        }
+      }}
       style={{
         display: "flex",
         justifyContent: "space-between",
@@ -47,35 +52,27 @@ function ProductCard({
       aria-disabled={incompatible || isSelected}
       tabIndex={incompatible || isSelected ? -1 : 0}
     >
-        <div style={{ fontSize: "bold", fontWeight: 700, margin: 4}}>
-          <p>{product.name}</p>
-          <p>${product.price}</p>
-        </div>
+      <div style={{ fontSize: "bold", fontWeight: 700, margin: 4 }}>
+        <p>{product.name}</p>
+        <p>${product.price}</p>
+      </div>
 
-        <Tag
-          style={{
-            borderRadius: 999,
-            padding: "6px 16px",
-            fontWeight: 600,
-            border: "none",
-            backgroundColor: isSelected
-              ? "#e6fffb"
-              : incompatible
-                ? "#fff7e6"
-                : "#f5f5f5",
-            color: isSelected
-              ? "#13c2c2"
-              : incompatible
-                ? "#fa8c16"
-                : "#595959",
-          }}
-        >
-          {isSelected
-            ? "Selected"
+      <Tag
+        style={{
+          borderRadius: 999,
+          padding: "6px 16px",
+          fontWeight: 600,
+          border: "none",
+          backgroundColor: isSelected
+            ? "#e6fffb"
             : incompatible
-              ? "Incompatible"
-              : "Available"}
-        </Tag>
+              ? "#fff7e6"
+              : "#f5f5f5",
+          color: isSelected ? "#13c2c2" : incompatible ? "#fa8c16" : "#595959",
+        }}
+      >
+        {isSelected ? "Selected" : incompatible ? "Incompatible" : "Available"}
+      </Tag>
     </Card>
   );
 }
